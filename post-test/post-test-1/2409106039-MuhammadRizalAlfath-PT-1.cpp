@@ -119,8 +119,20 @@ int main(){
         cout << "3. Konversi Reamur ke Celcius, Fahrenheit, dan Kelvin\n";
         cout << "4. Konversi Kelvin ke Celcius, Fahrenheit, dan Reamur\n";
         cout << "5. Keluar\n";
-        cout << endl << "Pilih menu (1-5): ";
-        cin >> pilihan;
+        
+        while (true) { 
+            cout << endl << "Pilih menu (1-5): ";
+            cin >> pilihan;
+    
+            if (cin.fail()) { 
+                cin.clear();
+                cin.ignore(1000, '\n'); 
+                cout << "Input tidak valid! Masukkan angka.\n";
+            } else {
+                break;
+            }
+        }
+        
 
         if (pilihan == 1){
             konversi_celcius();
